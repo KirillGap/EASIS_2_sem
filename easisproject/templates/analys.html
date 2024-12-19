@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторные работы</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Лабораторные работы</h1>
+    </header>
+    {% block content %}
+    <div class="button-container">
+            <a href="{% url 'upload' %}" class="action-button">Вернуться к загрузке</a>
+    </div>
+    <main>
+        <section class="lab-work" id="lab-work-2">
+            <h2>Лабораторная работа 2</h2>
+            <ul>
+                <li>Название файла: {{name}}</li>
+                <li>Нейронный метод: {{language.neural}}</li>
+                <li>Метод кототких слов: {{language.short_words}}</li>
+                <li>Метод частотных слов: {{language.freq}}</li>
+            </ul>
+        </section>
+
+        <section class="lab-work" id="lab-work-3">
+            <h2>Лабораторная работа 3</h2>
+            <ul>
+                <li><a href="{{ listDocumentFile }}" download>Скачать реферат в виде ключевых слов</a></li>
+                <li><a href="{{ classicDocumentFile }}" download>Скачать классический реферат</a></li>
+                <li>-</li>
+                <li>-</li>
+            </ul>
+        </section>
+
+                <section class="lab-work" id="lab-work-4">
+            <h2>Лабораторная работа 4</h2>
+            {{translatedText}}
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Слово</th>
+                            <th>Частота</th>
+                            <th>Часть речи</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for word, freq, pos in word_data %}
+                        <tr>
+                            <td>{{ word }}</td>
+                            <td>{{ freq }}</td>
+                            <td>{{ pos }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Предложение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for sent, num in sentences %}
+                        <tr>
+                            <td>{{num}}</td>>
+                            <td><a href="{% url 'tree' name sent %}">{{ sent }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    {% endblock %}
+    <footer>
+        <p>© 2024 Наш сайт</p>
+    </footer>
+</body>
+</html>

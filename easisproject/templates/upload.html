@@ -1,0 +1,21 @@
+{% extends 'analys.html' %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Загрузка файла</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    {% block content %}
+    <div class="upload-form-container">
+        <h1>Загрузить файл</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Загрузить</button>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

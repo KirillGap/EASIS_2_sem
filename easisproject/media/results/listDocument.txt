@@ -1,0 +1,3 @@
+food -> ['Food universal', 'food diverse', 'food vital', 'Food also', 'food trends', 'food industry', 'food more']
+and -> ['and connection', 'and traditions', 'and minerals', 'and minds', 'and vegetables', 'and fiber', 'and family', 'and creating', 'and farmtotable', 'and sustainability', 'and environmental', 'and labgrown', 'and ourselves']
+the -> ['the globe', 'the history', 'the fragrant', 'the delicate', 'the people', 'the global']
